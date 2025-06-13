@@ -3,6 +3,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import Image from 'next/image';
 
 const Hero = () => {
   const socialLinks = [
@@ -28,7 +29,7 @@ const Hero = () => {
             <div className="space-y-8" data-aos="fade-right">
               <div className="space-y-4">
                 <h1 className="text-4xl md:text-6xl font-bold text-white">
-                  Hi, I'm{' '}
+                  Hi, I&apos;m{' '}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-pink-500">
                     Vaibhav Yeravi
                   </span>
@@ -77,16 +78,19 @@ const Hero = () => {
             {/* Profile Image */}
             <div className="relative" data-aos="fade-left">
               <div className="relative z-10">
-                <div className="w-full aspect-square rounded-2xl overflow-hidden border-4 border-red-500/20 shadow-2xl shadow-red-500/20 transform hover:scale-105 transition-transform duration-300">
-                  <img
+                <div className="w-80 h-80 md:w-96 md:h-96 rounded-2xl overflow-hidden border-4 border-red-500/20 shadow-2xl shadow-red-500/20 transform hover:scale-105 transition-transform duration-300">
+                  <Image
                     src="/profile-image.jpg"
                     alt="Profile"
+                    width={384}
+                    height={384}
                     className="w-full h-full object-cover"
+                    priority
                   />
                 </div>
-                <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-r from-red-500 to-pink-500 rounded-full opacity-20 blur-xl animate-pulse"></div>
+                <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-gradient-to-r from-red-500 to-pink-500 rounded-full opacity-20 blur-xl animate-pulse"></div>
               </div>
-              <div className="absolute -top-6 -left-6 w-32 h-32 bg-gradient-to-r from-red-500 to-pink-500 rounded-full opacity-20 blur-xl animate-pulse"></div>
+              <div className="absolute -top-6 -left-6 w-24 h-24 bg-gradient-to-r from-red-500 to-pink-500 rounded-full opacity-20 blur-xl animate-pulse"></div>
             </div>
           </div>
         </div>

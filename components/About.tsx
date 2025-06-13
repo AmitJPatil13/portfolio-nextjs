@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 const About = () => {
   return (
     <section id="about" className="py-20 bg-gradient-to-b from-gray-900 to-black relative overflow-hidden">
@@ -13,11 +15,14 @@ const About = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
           {/* Profile Image */}
           <div className="md:col-span-1 flex justify-center md:justify-start">
-            <div className="w-48 h-48 rounded-2xl overflow-hidden border-4 border-red-500/20 shadow-2xl shadow-red-500/20">
-              <img
+            <div className="w-40 h-40 md:w-48 md:h-48 rounded-2xl overflow-hidden border-4 border-red-500/20 shadow-2xl shadow-red-500/20">
+              <Image
                 src="/profile-image.jpg"
                 alt="Vaibhav Yeravi"
+                width={192}
+                height={192}
                 className="w-full h-full object-cover"
+                priority
               />
             </div>
           </div>

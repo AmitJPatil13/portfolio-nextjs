@@ -1,31 +1,10 @@
 'use client';
 
-import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faPhone, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import { faFacebook, faTwitter, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Add your form submission logic here
-    console.log('Form submitted:', formData);
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
   const contactInfo = [
     {
       icon: faEnvelope,
@@ -36,8 +15,8 @@ const Contact = () => {
     {
       icon: faPhone,
       title: 'Phone',
-      value: '8767344146',
-      link: 'tel:8767344146',
+      value: '+91 8767344146',
+      link: 'tel:+918767344146',
     },
     {
       icon: faMapMarkerAlt,
@@ -47,84 +26,55 @@ const Contact = () => {
     },
   ];
 
+  const socialLinks = [
+    {
+      icon: faFacebook,
+      url: 'https://facebook.com/your-profile',
+      label: 'Facebook',
+    },
+    {
+      icon: faTwitter,
+      url: 'https://twitter.com/your-profile',
+      label: 'Twitter',
+    },
+    {
+      icon: faInstagram,
+      url: 'https://instagram.com/your-profile',
+      label: 'Instagram',
+    },
+    {
+      icon: faLinkedin,
+      url: 'https://linkedin.com/in/your-profile',
+      label: 'LinkedIn',
+    },
+  ];
+
   return (
-    <section id="contact" className="py-20 bg-gradient-to-b from-black to-gray-900 relative overflow-hidden">
+    <section id="contact" className="min-h-screen py-24 bg-gradient-to-b from-black to-gray-900 relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
-        <div className="absolute top-1/4 -left-20 w-60 h-60 bg-yellow-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 -right-20 w-60 h-60 bg-orange-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/4 -left-20 w-72 h-72 bg-yellow-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 -right-20 w-72 h-72 bg-orange-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="text-center mb-16" data-aos="fade-up">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div className="text-center mb-20" data-aos="fade-up">
+          <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
             Get In <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-orange-500">Touch</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-yellow-500 to-orange-500 mx-auto rounded-full"></div>
+          <div className="w-32 h-1.5 bg-gradient-to-r from-yellow-500 to-orange-500 mx-auto rounded-full"></div>
+          <p className="mt-6 text-gray-400 text-lg max-w-2xl mx-auto">
+            Feel free to reach out to me for any questions or opportunities. I'm always open to discussing new projects and ideas.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <div className="bg-gray-800/50 p-8 rounded-2xl backdrop-blur-sm border border-gray-700/50" data-aos="fade-right">
-            <h3 className="text-2xl font-bold text-white mb-6">Send Me a Message</h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Your Name"
-                  className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg focus:outline-none focus:border-yellow-500 text-white placeholder-gray-400 transition-colors duration-300"
-                  required
-                />
-              </div>
-              <div>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Your Email"
-                  className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg focus:outline-none focus:border-yellow-500 text-white placeholder-gray-400 transition-colors duration-300"
-                  required
-                />
-              </div>
-              <div>
-                <input
-                  type="text"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  placeholder="Subject"
-                  className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg focus:outline-none focus:border-yellow-500 text-white placeholder-gray-400 transition-colors duration-300"
-                  required
-                />
-              </div>
-              <div>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Your Message"
-                  rows={5}
-                  className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg focus:outline-none focus:border-yellow-500 text-white placeholder-gray-400 transition-colors duration-300 resize-none"
-                  required
-                ></textarea>
-              </div>
-              <button
-                type="submit"
-                className="w-full px-8 py-3 bg-gradient-to-r from-yellow-500 to-orange-500 text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-yellow-500/30 transform hover:scale-105 transition-all duration-300"
-              >
-                Send Message
-              </button>
-            </form>
-          </div>
-
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
           {/* Contact Information */}
-          <div className="space-y-8" data-aos="fade-left">
-            <div className="bg-gray-800/50 p-8 rounded-2xl backdrop-blur-sm border border-gray-700/50">
-              <h3 className="text-2xl font-bold text-white mb-6">Contact Information</h3>
+          <div className="space-y-8" data-aos="fade-right">
+            {/* Contact Info Cards */}
+            <div className="bg-gray-800/50 p-8 rounded-3xl backdrop-blur-sm border border-gray-700/50 shadow-xl shadow-black/20">
+              <h3 className="text-2xl font-bold text-white mb-8">Contact Information</h3>
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
                   <a
@@ -132,14 +82,14 @@ const Contact = () => {
                     href={info.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-4 p-4 rounded-xl bg-gray-700/30 hover:bg-gray-700/50 transition-colors duration-300 group"
+                    className="flex items-center space-x-5 p-5 rounded-2xl bg-gray-700/30 hover:bg-gray-700/50 transition-all duration-300 group hover:shadow-lg hover:shadow-yellow-500/10"
                   >
-                    <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-yellow-500 to-orange-500 p-3 flex items-center justify-center transform group-hover:rotate-6 transition-transform duration-300">
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-r from-yellow-500 to-orange-500 p-3.5 flex items-center justify-center transform group-hover:rotate-6 transition-transform duration-300 shadow-lg shadow-yellow-500/20">
                       <FontAwesomeIcon icon={info.icon} className="w-full h-full text-white" />
                     </div>
                     <div>
-                      <h4 className="text-gray-400 text-sm">{info.title}</h4>
-                      <p className="text-white font-medium">{info.value}</p>
+                      <h4 className="text-gray-400 text-sm font-medium mb-1">{info.title}</h4>
+                      <p className="text-white font-semibold text-lg">{info.value}</p>
                     </div>
                   </a>
                 ))}
@@ -147,21 +97,38 @@ const Contact = () => {
             </div>
 
             {/* Social Media Links */}
-            <div className="bg-gray-800/50 p-8 rounded-2xl backdrop-blur-sm border border-gray-700/50">
-              <h3 className="text-2xl font-bold text-white mb-6">Follow Me</h3>
-              <div className="flex space-x-4">
-                {['facebook', 'twitter', 'instagram', 'linkedin'].map((social) => (
+            <div className="bg-gray-800/50 p-8 rounded-3xl backdrop-blur-sm border border-gray-700/50 shadow-xl shadow-black/20">
+              <h3 className="text-2xl font-bold text-white mb-8">Follow Me</h3>
+              <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+                {socialLinks.map((social, index) => (
                   <a
-                    key={social}
-                    href={`https://${social}.com`}
+                    key={index}
+                    href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 rounded-lg bg-gray-700/30 hover:bg-gradient-to-r hover:from-yellow-500 hover:to-orange-500 flex items-center justify-center transform hover:scale-110 transition-all duration-300"
+                    className="w-14 h-14 rounded-xl bg-gray-700/30 hover:bg-gradient-to-r hover:from-yellow-500 hover:to-orange-500 flex items-center justify-center transform hover:scale-110 transition-all duration-300 shadow-lg shadow-black/20 hover:shadow-yellow-500/20"
+                    aria-label={social.label}
                   >
-                    <FontAwesomeIcon icon={['fab', social]} className="w-6 h-6 text-white" />
+                    <FontAwesomeIcon icon={social.icon} className="w-7 h-7 text-white" />
                   </a>
                 ))}
               </div>
+            </div>
+          </div>
+
+          {/* Map or Additional Content */}
+          <div className="bg-gray-800/50 p-8 rounded-3xl backdrop-blur-sm border border-gray-700/50 shadow-xl shadow-black/20 h-full" data-aos="fade-left">
+            <div className="aspect-square w-full rounded-2xl overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61254.98684578544!2d74.19489755!3d16.70569965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc1000cdec07a29%3A0xece8ea642952e42f!2sKolhapur%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1709912345678!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="rounded-2xl"
+              ></iframe>
             </div>
           </div>
         </div>
