@@ -65,7 +65,7 @@ const Contact = () => {
           </h2>
           <div className="w-32 h-1.5 bg-gradient-to-r from-yellow-500 to-orange-500 mx-auto rounded-full"></div>
           <p className="mt-6 text-gray-400 text-lg max-w-2xl mx-auto">
-            Feel free to reach out to me for any questions or opportunities. I'm always open to discussing new projects and ideas.
+            Feel free to reach out to me for any questions or opportunities. I&apos;m always open to discussing new projects and ideas.
           </p>
         </div>
 

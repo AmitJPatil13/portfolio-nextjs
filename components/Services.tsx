@@ -85,7 +85,7 @@ const Services = () => {
         {/* CTA Section */}
         <div className="mt-16 text-center" data-aos="fade-up">
           <p className="text-gray-400 text-lg mb-6">
-            Ready to bring your ideas to life? Let's create something amazing together!
+            Ready to bring your ideas to life? Let&apos;s create something amazing together!
           </p>
           <a
             href="#contact"
